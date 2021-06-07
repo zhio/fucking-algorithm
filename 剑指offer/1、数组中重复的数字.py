@@ -35,7 +35,33 @@ def findRepeatNumber(nums: List[int]) -> int:
 			hash_map[nums[i]] += 1
 	return [k for k, v in hash_map.items() if v > 0][0]
 
+"""
+使用set
+"""
+def findRepeatNumberBySet(nums: List[int]) -> int:
+	num_set = set()
+	for num in nums:
+		if num in num_set:
+			return num
+		num_set.add(num)
+	return -1
+
+"""
+原地交换
+"""
+def findReqeatNumberByOther(nums :List[int]) -> int:
+	i = 0
+	while i < len(nums):
+		if nums[i] == i:
+			i += 1
+			continue
+		if nums[nums[i]] == nums[i]: return nums[i]
+		nums[nums[i]], nums[i] = nums[i], nums[nums[i]]
+	return -1
+
 
 if __name__ == '__main__':
 	nums = [2, 3, 1, 0, 2, 5, 3]
 	print(findRepeatNumber(nums))
+	print(findRepeatNumberBySet(nums))
+	print(findReqeatNumberByOther(nums))

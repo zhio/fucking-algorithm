@@ -1,8 +1,5 @@
-# -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/26 15:57'
-# 二叉树实现
 
+# 二叉树实现
 
 class Node(object):
     """
@@ -10,8 +7,8 @@ class Node(object):
     """
     def __init__(self, data):
         self.data = data
-        self.lchild = None
-        self.rchild = None
+        self.left = None
+        self.right = None
 
 
 class Tree(object):
@@ -35,16 +32,16 @@ class Tree(object):
         queue.append(self.root)
         while queue:
             cur_node = queue.pop(0)
-            if cur_node.lchild is None:
-                cur_node.lchild = node
+            if cur_node.left is None:
+                cur_node.left = node
                 return
             else:
-                queue.append(cur_node.lchild)
-            if cur_node.rchild is None:
-                cur_node.rchild = node
+                queue.append(cur_node.left)
+            if cur_node.right is None:
+                cur_node.right = node
                 return
             else:
-                queue.append(cur_node.rchild)
+                queue.append(cur_node.right)
 
     def breadth_travel(self):
         """
@@ -57,10 +54,10 @@ class Tree(object):
         while queue:
             cur_node = queue.pop(0)
             print(cur_node.data, end=" ")
-            if cur_node.lchild is not None:
-                queue.append(cur_node.lchild)
-            if cur_node.rchild is not None:
-                queue.append(cur_node.rchild)
+            if cur_node.left is not None:
+                queue.append(cur_node.left)
+            if cur_node.right is not None:
+                queue.append(cur_node.right)
 
     def preorder(self, root_node):
         """
@@ -70,8 +67,8 @@ class Tree(object):
         if root_node is None:
             return
         print(root_node.data, end=" ")
-        self.preorder(root_node.lchild)
-        self.preorder(root_node.rchild)
+        self.preorder(root_node.left)
+        self.preorder(root_node.right)
 
     def inorder(self, root_node):
         """
@@ -80,9 +77,9 @@ class Tree(object):
         """
         if root_node is None:
             return
-        self.inorder(root_node.lchild)
+        self.inorder(root_node.left)
         print(root_node.data, end=" ")
-        self.inorder(root_node.rchild)
+        self.inorder(root_node.right)
 
     def postorder(self, root_node):
         """
@@ -91,9 +88,11 @@ class Tree(object):
         """
         if root_node is None:
             return
-        self.postorder(root_node.lchild)
-        self.postorder(root_node.rchild)
+        self.postorder(root_node.left)
+        self.postorder(root_node.right)
         print(root_node.data, end=" ")
+
+
 
 
 if __name__ == '__main__':

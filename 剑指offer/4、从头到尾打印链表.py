@@ -23,10 +23,29 @@
 """
 利用栈来实现
 """
-def reversePrint(head: ListNode) -> List[int]:
+from typing import List
+
+
+def reversePrintbyStack(head: ListNode) -> List[int]:
     stack = []
     cur = head
     while cur is not None:
         stack.append(cur.val)
         cur = cur.next
     return [stack.pop() for _ in range(len(stack))]
+
+"""
+利用数组反转
+"""
+def reversePrintbyList(head: ListNode) -> List[int]:
+    stack = []
+    while head:
+        stack.append(head.val)
+        head = head.next
+    return stack[::-1]
+
+"""
+利用递归
+"""
+def reversePrint(head: ListNode) -> List[int]:
+    return reversePrint(head.next) + [head.val] if head else []

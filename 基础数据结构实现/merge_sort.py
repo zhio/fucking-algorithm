@@ -10,7 +10,8 @@ def merge_sort(item):
     最优时间复杂度：O(nlogn)
     最坏时间复杂度：O(nlogn)
     稳定排序算法
-    :return:
+    :return
+    分成左右两半，将大的元素放右边 小的元素放左边
     """
     n = len(item)
     if n <= 1:

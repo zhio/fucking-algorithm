@@ -1,12 +1,7 @@
-# -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/25 17:20'
 # 二分法查找
-
-
 def binary_search(item, key):
     """
-    二分法查找
+    二分法递归查找
     最优时间复杂度：O(1)
     最坏时间复杂度：O(logn)
     :param item:
@@ -36,7 +31,8 @@ def binary_search1(item, key):
     start = 0
     end = n - 1
     while start <= end:
-        mid = (start + end) // 2
+        #防止溢出
+        mid = start + (end-start) // 2
         if item[mid] == key:
             return item[mid]
         elif item[mid] > key:

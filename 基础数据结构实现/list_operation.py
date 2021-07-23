@@ -1,6 +1,4 @@
-# -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/13 18:49'
+
 import timeit
 
 

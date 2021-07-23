@@ -1,6 +1,3 @@
-# -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/18 18:54'
 # 双端队列实现
 
 

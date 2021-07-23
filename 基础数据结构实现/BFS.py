@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-"""
- * @Author: chenjb
- * @Date: 2020/10/14 15:02
- * @Last Modified by:   chenjb
- * @Last Modified time: 2020/10/14 15:02
- * @Desc:
-"""
-
-
 from typing import List, Dict, Union, Optional, Any
 
 

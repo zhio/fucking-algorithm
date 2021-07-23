@@ -14,6 +14,7 @@ def quick_sort(item, first, last):
     :param first:起始值索引
     :param last:最后值索引
     :return:
+    每次挑选一个元素，放在合适的位置，比它大的放右边，比他小的放左边
     """
     if first < last:
         mid_value = item[first]

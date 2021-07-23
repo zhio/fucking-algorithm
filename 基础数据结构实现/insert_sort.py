@@ -1,6 +1,3 @@
-# -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/19 19:01'
 # 插入排序
 
 
@@ -14,8 +11,10 @@ def insert_sort(item):
     :return:
     """
     n = len(item)
+    # 遍历每一个元素
     for j in range(1, n):
         i = j
+        # 把当前遍历到的元素插入到已经排好序的列表中
         while i > 0:
             if item[i] < item[i-1]:
                 item[i], item[i-1] = item[i-1], item[i]

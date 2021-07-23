@@ -9,9 +9,9 @@
 """
 
 class ListNode:
-    def __init__(self,val) -> None:
+    def __init__(self,val:int,next:"ListNode"=None) -> None:
         self.val = val
-        self.next = None
+        self.next = next
 
 # 使用迭代的方式
 def reverseList(head: ListNode) -> ListNode:

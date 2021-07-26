@@ -63,7 +63,6 @@ def isMatch(s: str, p: str) -> bool:
 		return isMatch(s, p[2:]) or first_match and isMatch(s[1:], p)
 	else:
 		return first_match and isMatch(s[1:], p[1:])
-	
 
 if __name__ == '__main__':
 	s = "mississippi"

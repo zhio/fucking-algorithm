@@ -20,7 +20,6 @@
 0 <= n <= 100
 """
 
-
 """
 动态规划  
 当为 1 级台阶： 剩 n-1 个台阶，此情况共有 f(n−1) 种跳法；
@@ -28,16 +27,26 @@
 
 状态方程 f(n) = f(n-1) + f(n-2)
 """
+
+
 def numWays(n: int) -> int:
-	dp = {}
-	dp[0] = 1
-	dp[1] = 1
-	if n > 1:
-		for i in range(2, n+1):
-			dp[i] = dp[i-1] + dp[i-2]
-	return dp[n] % 1000000007
+    dp = {}
+    dp[0] = 1
+    dp[1] = 1
+    if n > 1:
+        for i in range(2, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n] % 1000000007
+
+
+def numWays2(n: int) -> int:
+    a, b = 1, 1
+    for _ in range(n):
+        a, b = b, (a + b) % 1000000007
+    return a
 
 
 if __name__ == '__main__':
-	n = 7
-	print(numWays(n))
+    n = 7
+    print(numWays(n))
+    print(numWays2(n))

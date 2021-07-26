@@ -24,30 +24,49 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 0 <= n <= 100
 """
 
-
 """
 递归 会超时
 """
+
+
 def fib(n: int) -> int:
-	if n < 2:
-		return n
-	return (fib(n-1) + fib(n-2)) % 1000000007
+    if n < 2:
+        return n
+    return (fib(n - 1) + fib(n - 2)) % 1000000007
 
 
 """
 动态规划
 """
+
+
 def fib1(n: int) -> int:
-	dp = {}
-	dp[0] = 0
-	dp[1] = 1
-	if n >=2 :
-		for i in range(2, n+1):
-			dp[i] = dp[i-1] + dp[i-2]
-	return dp[n] % 1000000007
+    dp = {}
+    dp[0] = 0
+    dp[1] = 1
+    if n >= 2:
+        for i in range(2, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n] % 1000000007
+
+
+"""
+记忆化递归
+"""
+
+
+def fib2(n: int) -> int:
+    fibs = [0] * n
+    if n == 0 or n == 1:
+        return n
+    elif fibs[n] != 0:
+        return fibs[n]
+    else:
+        fibs = fib2(n - 1) + fib2(n - 2)
+        return fibs
 
 
 if __name__ == '__main__':
-	n = 5
-	print(fib(n))
-	print(fib1(n))
+    n = 5
+    print(fib(n))
+    print(fib1(n))

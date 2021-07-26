@@ -1,7 +1,29 @@
 # -*- coding:utf-8 -*-
-__author__ = 'ChenJiaBao'
-__date__ = '2019/2/21 19:26'
+
 # 快速排序实现
+
+def quick_sort_easy(arr):
+    if not arr:
+        return []
+    mid = len(arr) >> 1
+    left = [i for i in arr if arr[i] < arr[mid]]
+    equal = [i for i in arr if arr[i] == arr[mid]]
+    right = [i for i in arr if arr[i] > arr[mid]]
+    return quick_sort(left) + equal + quick_sort(right)
+
+
+# 比较容易理解的交换
+def quick_sort_by_shift_left(arr, low, high):
+    if low >= high:
+        return
+    i = low
+    for j in range(low, high):
+        if arr[j] <= arr[high]:
+            arr[i], arr[j] = arr[j], arr[i]
+            i = i + 1
+    arr[i], arr[high] = arr[high], arr[i]
+    quick_sort_by_shift_left(arr, low, i - 1)
+    quick_sort(arr, i + 1, high)
 
 
 def quick_sort(item, first, last):
@@ -29,13 +51,12 @@ def quick_sort(item, first, last):
                 low += 1
             item[high] = item[low]
         item[low] = mid_value
-        quick_sort(item, first, low-1)
-        quick_sort(item, low+1, last)
+        quick_sort(item, first, low - 1)
+        quick_sort(item, low + 1, last)
     return item
 
 
 if __name__ == '__main__':
     li = [0, -89, 8, 2, 99, 53]
     print(li)
-    print(quick_sort(li, 0, len(li)-1))
-
+    print(quick_sort(li, 0, len(li) - 1))
